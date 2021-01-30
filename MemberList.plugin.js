@@ -1,3 +1,10 @@
+/**
+ * @name MemberList
+ * @authorLink https://twitter.com/DasChaos
+ * @source https://raw.githubusercontent.com/ThomasMarangoni/BetterDiscordAddon-Memberlist/main/MemberList.plugin.js
+ */
+
+
 /*@cc_on
 @if (@_jscript)
 	
@@ -23,7 +30,7 @@
 @else@*/
 
 module.exports = (() => {
-    const config = {info:{name:"MemberList",authors:[{name:"DasChaos",discord_id:"303646014596972555",github_username:"ThomasMarangoni",twitter_username:"DasChaosAT"}],version:"0.0.2",description:"Allows you to get the Discord Ids of every visble user on the server.",github:"https://github.com/ThomasMarangoni/BetterDiscordAddon-Memberlist/tree/main",github_raw:"https://raw.githubusercontent.com/ThomasMarangoni/BetterDiscordAddon-Memberlist/tree/main/MemberList.plugin.js"},main:"index.js"};
+    const config = {info:{name:"MemberList",authors:[{name:"DasChaos",discord_id:"303646014596972555",github_username:"ThomasMarangoni",twitter_username:"DasChaosAT"}],version:"0.0.3",description:"Allows you to get the Discord Ids of every visble user on the server.",github:"https://github.com/ThomasMarangoni/BetterDiscordAddon-Memberlist/tree/main",github_raw:"https://raw.githubusercontent.com/ThomasMarangoni/BetterDiscordAddon-Memberlist/main/MemberList.plugin.js"},main:"index.js"};
 
     return !global.ZeresPluginLibrary ? class {
         constructor() {this._config = config;}
@@ -53,13 +60,7 @@ module.exports = (() => {
     const filter = (obj, predicate) => from(Object.entries(obj).filter((o) => {return predicate(o[1]);}));
 
     const GuildStore = DiscordModules.GuildStore;
-    //const SelectedGuildStore = DiscordModules.SelectedGuildStore;
-    //const PopoutStack = DiscordModules.PopoutStack;
     const GuildMemberStore = DiscordModules.GuildMemberStore;
-    const UserStore = DiscordModules.UserStore;
-
-    //const ImageResolver = DiscordModules.ImageResolver;
-    //const WrapperClasses = WebpackModules.getByProps("wrapperHover");
     const animate = DOMTools.animate ? DOMTools.animate.bind(DOMTools) : ({timing = _ => _, update, duration}) => {
         const start = performance.now();
 
@@ -151,9 +152,6 @@ module.exports = (() => {
 			}
 			
 			navigator.clipboard.writeText(outString);
-			
-			console.log("test");
-			console.log(JSON.stringify(UserStore));
         }
 
     };
